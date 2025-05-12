@@ -1,0 +1,9 @@
+INFO Server started on port 3000
+INFO Connected to MongoDB
+ERROR Failed to fetch user profile
+INFO Request received: GET /home
+ERROR Payment service timeout
+INFO Cache warmed up successfully
+INFO User logged in
+ERROR Database connection lost
+INFO Health check passed
