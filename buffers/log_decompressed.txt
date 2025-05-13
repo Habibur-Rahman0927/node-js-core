@@ -1,0 +1,5 @@
+
+[INFO] Server started at 10:00
+[INFO] Connected to database
+[ERROR] Failed to fetch user data
+[INFO] Server shut down at 18:00

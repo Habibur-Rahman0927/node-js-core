@@ -1,0 +1,4 @@
+🎮 Decoded Player States:
+
+🧍 Player 1: x=100.50, y=250.25, vx=5.20, vy=-3.10, angle=90.00°
+🧍 Player 2: x=300.00, y=120.00, vx=0.00, vy=1.20, angle=45.50°

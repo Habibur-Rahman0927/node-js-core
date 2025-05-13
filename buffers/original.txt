@@ -1,0 +1,3 @@
+Hello, this is a test file.
+It contains multiple lines of text.
+We'll convert this into a binary file and back.
