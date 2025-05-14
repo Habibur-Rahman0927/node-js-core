@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Video Streaming</title>
+</head>
+<body>
+  <h1>Video Streaming Example</h1>
+  <select id="quality">
+    <option value="480p">480p</option>
+    <option value="720p">720p</option>
+  </select>
+  <br /><br />
+  <video id="videoPlayer" controls width="640"></video>
+
+  <script>
+    const video = document.getElementById("videoPlayer");
+    const qualitySelect = document.getElementById("quality");
+
+    function loadVideo(quality) {
+      video.src = `/video/${quality}`;
+      video.load();
+      video.play();
+    }
+
+    qualitySelect.addEventListener("change", (e) => {
+      loadVideo(e.target.value);
+    });
+
+    // Default load
+    loadVideo("480p");
+  </script>
+</body>
+</html>
