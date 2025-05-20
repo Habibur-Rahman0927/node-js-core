@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fleet Dashboard</title>
+</head>
+<body>
+    <h1>🚗 Real-Time GPS Dashboard</h1>
+    <ul id="logs"></ul>
+
+    <script>
+        const logs = document.getElementById("logs");
+        const ws = new WebSocket("ws://localhost:3000");
+
+        ws.onmessage = (event) => {
+            console.log(event)
+            const data = JSON.parse(event.data);
+            const li = document.createElement("li");
+            li.textContent = `${data.deviceId} => (${data.lat}, ${data.lng}) @ ${new Date(data.timestamp).toLocaleTimeString()}`;
+            logs.prepend(li);
+        };
+    </script>
+</body>
+</html>

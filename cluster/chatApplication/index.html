@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Clustered Chat</title>
+</head>
+<body>
+  <ul id="messages"></ul>
+  <input id="msgInput" autocomplete="off" /><button>Send</button>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+
+    const input = document.getElementById('msgInput');
+    const messages = document.getElementById('messages');
+
+    document.querySelector('button').onclick = () => {
+      if (input.value) {
+        socket.emit('chat message', input.value);
+        input.value = '';
+      }
+    };
+
+    socket.on('chat message', function(msg) {
+      const li = document.createElement("li");
+      li.textContent = msg;
+      messages.appendChild(li);
+    });
+  </script>
+</body>
+</html>

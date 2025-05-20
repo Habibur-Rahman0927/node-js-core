@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>📡 Webhook Dashboard</title>
+</head>
+<body>
+    <h1>🔁 Real-Time Webhook Events</h1>
+    <ul id="logs"></ul>
+
+    <script>
+        const logs = document.getElementById("logs");
+        const ws = new WebSocket("ws://localhost:4000");
+
+        ws.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            const li = document.createElement("li");
+            li.textContent = `[${new Date(data.timestamp).toLocaleTimeString()}] ${data.source} → ${data.event}`;
+            logs.prepend(li);
+        };
+    </script>
+</body>
+</html>

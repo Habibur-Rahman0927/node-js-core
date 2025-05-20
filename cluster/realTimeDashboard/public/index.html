@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Real-Time Dashboard</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    .card { border: 1px solid #ccc; padding: 20px; margin: 10px 0; }
+  </style>
+</head>
+<body>
+  <h1>📊 Real-Time Analytics Dashboard</h1>
+
+  <div class="card">
+    <strong>Total Connected Users:</strong> <span id="connections">0</span>
+  </div>
+
+  <div class="card">
+    <strong>Recent Event:</strong> <pre id="eventLog">None</pre>
+  </div>
+
+  <button onclick="emitEvent()">Send Test Event</button>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+
+    socket.on('stats', data => {
+      document.getElementById('connections').textContent = data.totalConnections;
+    });
+
+    socket.on('user-event', data => {
+      document.getElementById('eventLog').textContent = JSON.stringify(data, null, 2);
+    });
+
+    function emitEvent() {
+      socket.emit('user-event', {
+        type: 'PAGE_VIEW',
+        timestamp: new Date().toISOString()
+      });
+    }
+  </script>
+</body>
+</html>

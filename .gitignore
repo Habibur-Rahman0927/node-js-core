@@ -6,3 +6,10 @@
 /streams/uploadProgress/node_modules
 /streams/uploadLargeCsv/node_modules
 /streams/uploadLargeCsv/uploads
+/cluster/socialApp/node_modules
+/cluster/chatApplication/node_modules
+/cluster/realTimeDashboard/node_modules
+/cluster/bookingPlatform/node_modules
+/cluster/gpsTracker/node_modules
+/cluster/webhookServer/node_modules
+/cluster/bulkDispatch/node_modules
