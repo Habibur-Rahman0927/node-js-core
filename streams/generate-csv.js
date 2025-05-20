@@ -9,8 +9,8 @@ const writeStream = fs.createWriteStream(filePath);
 // // Write CSV header
 writeStream.write('id,name,email,age\n');
 
-const totalRecords = 1000000000000; // use it only for test 1 trillion row
-// const totalRecords = 10000;
+// const totalRecords = 1000000000000; // use it only for test 1 trillion row
+const totalRecords = 10000;
 let i = 1;
 
 // Define a function to write in chunks respecting backpressure

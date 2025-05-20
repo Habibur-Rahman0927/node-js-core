@@ -2,3 +2,7 @@
 /streams/uploadLargeFile/node_modules
 /streams/videoStream/node_modules
 /streams/videoStreamSimilarAsYoutube/node_modules
+/streams/logMonitorStream/node_modules
+/streams/uploadProgress/node_modules
+/streams/uploadLargeCsv/node_modules
+/streams/uploadLargeCsv/uploads

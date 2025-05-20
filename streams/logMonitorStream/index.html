@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Log Stream</title>
+</head>
+<body>
+  <h2>Live Server Logs</h2>
+  <pre id="logArea" style="background: #222; color: #0f0; padding: 1rem;"></pre>
+
+  <script>
+    const logArea = document.getElementById("logArea");
+    const ws = new WebSocket("ws://localhost:3000");
+
+    ws.onmessage = (event) => {
+      logArea.textContent += event.data + "\n";
+      logArea.scrollTop = logArea.scrollHeight;
+    };
+  </script>
+</body>
+</html>

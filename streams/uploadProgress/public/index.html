@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>File Upload with Live Progress</title>
+</head>
+<body>
+  <h2>📤 Upload a file</h2>
+  <form id="uploadForm" enctype="multipart/form-data">
+    <input type="file" name="file" />
+    <button type="submit">Upload</button>
+  </form>
+
+  <h3 id="progress">Progress: 0%</h3>
+
+  <script>
+    const ws = new WebSocket("ws://localhost:3000");
+
+    ws.onmessage = (msg) => {
+      const data = JSON.parse(msg.data);
+      if (data.percent) {
+        document.getElementById("progress").innerText = `Progress: ${data.percent}%`;
+      }
+      if (data.done) {
+        document.getElementById("progress").innerText = "✅ Upload completed!";
+      }
+    };
+
+    document.getElementById("uploadForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      await fetch("/upload", {
+        method: "POST",
+        body: formData,
+      });
+    });
+  </script>
+</body>
+</html>
